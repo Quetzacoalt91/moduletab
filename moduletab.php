@@ -76,6 +76,10 @@ class ModuleTab extends Module
         $newTab->class_name = $themesTab->class_name.'Parent';
         $newTab->save();
 
+        // Second save in order to get the proper position (add() resets it)
+        $newTab->position = $themesTab->position;
+        $newTab->save();
+
         $themesTab->id_parent = $newTab->id;
         $themesTab->save();
         return true;
@@ -98,10 +102,11 @@ class ModuleTab extends Module
         if (!$themesTabParent || !$themesTab) {
             return true;
         }
+        $themesTab->position = $themesTabParent->position;
         $themesTab->id_parent = $themesTabParent->id_parent;
+        $themesTabParent->delete();
 
         $themesTab->save();
-        $themesTabParent->delete();
         return true;
     }
 }
