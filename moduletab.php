@@ -13,14 +13,16 @@ class ModuleTab extends Module
             'name' => 'Tab 1', // One name for all langs
             'class_name' => 'AdminTabOne',
             'visible' => true,
-            'parent_class_name' => 'AdminThemesParent',
+            'parent_class_name' => 'AdminThemes',
         ),
         array(
             'name' => 'Tab 2', // One name for all langs
             'class_name' => 'AdminTabTwo',
             'visible' => true,
-            'parent_class_name' => 'AdminThemesParent',
+            'parent_class_name' => 'AdminThemes',
     ));
+
+    const psVersionWithFix = '1.7.3.2';
 
     /**
      * {@inheritdoc}
@@ -64,7 +66,7 @@ class ModuleTab extends Module
      */
     public function fixTabOnInstall()
     {
-        if (version_compare(_PS_VERSION_, '1.7.4.0', '>=')) {
+        if (version_compare(_PS_VERSION_, self::psVersionWithFix, '>=')) {
             return true;
         }
 
@@ -92,7 +94,7 @@ class ModuleTab extends Module
      */
     public function fixTabOnUninstall()
     {
-        if (version_compare(_PS_VERSION_, '1.7.4.0', '>=')) {
+        if (version_compare(_PS_VERSION_, self::psVersionWithFix, '>=')) {
             return true;
         }
 
