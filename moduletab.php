@@ -5,7 +5,7 @@ class ModuleTab extends Module
     /**
      * Using the automatic creation of tab available from PS 1.7.1.0
      * @see http://doc.prestashop.com/display/PS17/Adding+module+links+in+the+back-office+side+menu
-     * 
+     *
      * @var Array of tabs (= admin controllers) to add
      */
     public $tabs = array(
@@ -46,18 +46,18 @@ class ModuleTab extends Module
     /**
      * {@inheritdoc}
      */
-    public function install()
+    /*public function install()
     {
         return parent::install() && $this->fixTabOnInstall();
-    }
+    }*/
 
     /**
      * {@inheritdoc}
      */
-    public function uninstall()
+    /*public function uninstall()
     {
         return parent::uninstall() && $this->fixTabOnUninstall();
-    }
+    }*/
 
     /**
      * Hacky function duplicating the tab in which we want to add sub menus
@@ -89,7 +89,7 @@ class ModuleTab extends Module
 
     /**
      * Hacky function deleting the tab previously added
-     * 
+     *
      * @return boolean
      */
     public function fixTabOnUninstall()
